@@ -5,9 +5,14 @@ namespace App\Core\Models;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class User extends Authenticatable
+class User extends /*Authenticatable*/ \Jenssegers\Mongodb\Eloquent\Model /*implements*/
+    /*AuthenticatableContract,
+    AuthorizableContract,
+    CanResetPasswordContract*/
 {
     use Notifiable;
+    //use Authenticatable, Authorizable, CanResetPassword, Notifiable;
+
 
     /**
      * The attributes that are mass assignable.
