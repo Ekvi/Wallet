@@ -12068,7 +12068,7 @@ var Login = __webpack_require__(46);
 var routes = [{ path: '/login', component: Login }, { path: '/dashboard', component: Dashboard }];
 
 var router = new __WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]({
-    mode: 'history',
+    //mode: 'history',
     routes: routes
 });
 
@@ -45875,10 +45875,11 @@ module.exports = Component.exports
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Dashboard_vue__ = __webpack_require__(63);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Dashboard_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__Dashboard_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Login_vue__ = __webpack_require__(46);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Login_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__Login_vue__);
+//
+//
+//
+//
+//
 //
 //
 //
@@ -45887,8 +45888,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 
-
-
+/*import Dashboard from './Dashboard.vue';
+import Login from './Login.vue';*/
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     mounted: function mounted() {
@@ -45904,16 +45905,27 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "container" },
-    [
-      _c("router-link", { attrs: { to: "/dashboard" } }, [_vm._v("Home")]),
+  return _c("nav", [
+    _c("div", { staticClass: "nav-wrapper" }, [
+      _c("a", { staticClass: "brand-logo", attrs: { href: "#" } }, [
+        _vm._v("Logo")
+      ]),
       _vm._v(" "),
-      _c("router-link", { attrs: { to: "/login" } }, [_vm._v("Login")])
-    ],
-    1
-  )
+      _c(
+        "div",
+        {
+          staticClass: "right hide-on-med-and-down",
+          attrs: { id: "nav-mobile" }
+        },
+        [
+          _c("router-link", { attrs: { to: "/dashboard" } }, [_vm._v("Home")]),
+          _vm._v(" "),
+          _c("router-link", { attrs: { to: "/login" } }, [_vm._v("Login")])
+        ],
+        1
+      )
+    ])
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -45995,6 +46007,17 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     //data
@@ -46018,20 +46041,82 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container" }, [
-      _c("div", { staticClass: "row" }, [
-        _c("div", { staticClass: "col-md-8 col-md-offset-2" }, [
-          _c("div", { staticClass: "panel panel-default" }, [
-            _c("div", { staticClass: "panel-heading" }, [
-              _vm._v("Footer Component")
-            ]),
+    return _c("footer", { staticClass: "page-footer" }, [
+      _c("div", { staticClass: "container" }, [
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col l6 s12" }, [
+            _c("h5", { staticClass: "white-text" }, [_vm._v("Footer Content")]),
             _vm._v(" "),
-            _c("div", { staticClass: "panel-body" }, [
+            _c("p", { staticClass: "grey-text text-lighten-4" }, [
               _vm._v(
-                "\n                    I'm an example component!\n                    test\n                "
+                "You can use rows and columns here to organize your footer content."
               )
             ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col l4 offset-l2 s12" }, [
+            _c("h5", { staticClass: "white-text" }, [_vm._v("Links")]),
+            _vm._v(" "),
+            _c("ul", [
+              _c("li", [
+                _c(
+                  "a",
+                  {
+                    staticClass: "grey-text text-lighten-3",
+                    attrs: { href: "#!" }
+                  },
+                  [_vm._v("Link 1")]
+                )
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c(
+                  "a",
+                  {
+                    staticClass: "grey-text text-lighten-3",
+                    attrs: { href: "#!" }
+                  },
+                  [_vm._v("Link 2")]
+                )
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c(
+                  "a",
+                  {
+                    staticClass: "grey-text text-lighten-3",
+                    attrs: { href: "#!" }
+                  },
+                  [_vm._v("Link 3")]
+                )
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c(
+                  "a",
+                  {
+                    staticClass: "grey-text text-lighten-3",
+                    attrs: { href: "#!" }
+                  },
+                  [_vm._v("Link 4")]
+                )
+              ])
+            ])
           ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "footer-copyright" }, [
+        _c("div", { staticClass: "container" }, [
+          _vm._v("\n            © 2014 Copyright Text\n            "),
+          _c(
+            "a",
+            {
+              staticClass: "grey-text text-lighten-4 right",
+              attrs: { href: "#!" }
+            },
+            [_vm._v("More Links")]
+          )
         ])
       ])
     ])
@@ -46251,6 +46336,23 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     mounted: function mounted() {
@@ -46275,14 +46377,22 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "container" }, [
       _c("div", { staticClass: "row" }, [
-        _c("div", { staticClass: "col-md-8 col-md-offset-2" }, [
-          _c("div", { staticClass: "panel panel-default" }, [
-            _c("div", { staticClass: "panel-heading" }, [_vm._v("DASHBOARD")]),
+        _c("div", { staticClass: "col s12" }, [
+          _c("div", { staticClass: "card #e3f2fd blue lighten-5" }, [
+            _c("div", { staticClass: "card-content white-text" }, [
+              _c("span", { staticClass: "card-title" }, [_vm._v("Card Title")]),
+              _vm._v(" "),
+              _c("p", [
+                _vm._v(
+                  "I am a very simple card. I am good at containing small bits of information.\n                        I am convenient because I require little markup to use effectively."
+                )
+              ])
+            ]),
             _vm._v(" "),
-            _c("div", { staticClass: "panel-body" }, [
-              _vm._v(
-                "\n                    I'm an example component!\n                "
-              )
+            _c("div", { staticClass: "card-action" }, [
+              _c("a", { attrs: { href: "#" } }, [_vm._v("This is a link")]),
+              _vm._v(" "),
+              _c("a", { attrs: { href: "#" } }, [_vm._v("This is a link")])
             ])
           ])
         ])
