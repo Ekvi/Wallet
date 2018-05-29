@@ -12,12 +12,10 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
 
-/*Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');*/
+//Auth::routes();
 
 Route::get('/mongo', function() {
     $categories = DB::collection('categories')->get();
