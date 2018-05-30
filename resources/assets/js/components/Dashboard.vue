@@ -1,38 +1,50 @@
 <template>
-    <!--<div class="container">
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2">
-                <div class="panel panel-default">
-                    <div class="panel-heading">DASHBOARD</div>
-
-                    <div class="panel-body">
-                        I'm an example component!
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>-->
-    <div class="container">
+    <div class="container #e0f2f1 teal lighten-5">
         <div class="row">
             <div class="col s12">
-                <div class="card #e3f2fd blue lighten-5">
-                    <div class="card-content white-text">
-                        <span class="card-title">Card Title</span>
-                        <p>I am a very simple card. I am good at containing small bits of information.
-                            I am convenient because I require little markup to use effectively.</p>
+                <app-statistic></app-statistic>
+
+                <div class="row">
+                    <div class="col s6">
+                        <app-costs-list></app-costs-list>
                     </div>
-                    <div class="card-action">
-                        <a href="#">This is a link</a>
-                        <a href="#">This is a link</a>
+                    <div class="col s6">
+                        <app-chart-costs></app-chart-costs>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col s6">
+                        <app-chart-history></app-chart-history>
+                    </div>
+                    <div class="col s6">
+
                     </div>
                 </div>
             </div>
         </div>
+
     </div>
 </template>
 
 <script>
+    import Statistic from './Dashboard/Statistic.vue';
+    import CostsList from './Dashboard/CostsList.vue';
+    import ChartCosts from './Dashboard/Chart/ChartCosts.vue';
+    import ChartHistory from './Dashboard/Chart/ChartHistory.vue';
+
     export default {
+        components: {
+            appStatistic: Statistic,
+            appCostsList: CostsList,
+            appChartCosts: ChartCosts,
+            appChartHistory: ChartHistory,
+        },
+        data() {
+            return {
+
+            }
+        },
         mounted() {
             console.log('Dash.')
         }
