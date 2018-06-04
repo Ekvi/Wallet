@@ -46980,7 +46980,7 @@ var staticRenderFns = [
                     "btn-floating add-fab waves-effect #e57373 red lighten-2",
                   attrs: { href: "#" }
                 },
-                [_c("i", { staticClass: "material-icons" }, [_vm._v("add")])]
+                [_c("i", { staticClass: "material-icons" }, [_vm._v("+")])]
               ),
               _vm._v(" "),
               _c("li", { staticClass: "collection-item" }, [
@@ -47018,7 +47018,7 @@ var staticRenderFns = [
                     "btn-floating add-fab waves-effect #e57373 red lighten-2",
                   attrs: { href: "#" }
                 },
-                [_c("i", { staticClass: "material-icons" }, [_vm._v("add")])]
+                [_c("i", { staticClass: "material-icons" }, [_vm._v("+")])]
               ),
               _vm._v(" "),
               _c("li", { staticClass: "collection-item" }, [
@@ -47526,39 +47526,41 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
         return {
-            date: null,
-            time: null
+            purchase: {}
         };
     },
     mounted: function mounted() {
-        $('.datepicker').datepicker({
-            selectMonths: true,
-            selectYears: 15,
-            firstDay: 1,
-            format: 'yyyy-mm-dd',
-            i18n: {
-                months: ["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"],
-                monthsShort: ["Янв", "Фев", "Мар", "Апр", "Май", "Июн", "Июл", "Авг", "Сен", "Окт", "Ноя", "Дек"],
-                weekdays: ["Воскресенье", "Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Субота"],
-                weekdaysShort: ["Вс", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб"],
-                weekdaysAbbrev: ["В", "П", "В", "С", "Ч", "П", "С"],
-                cancel: 'Отмена'
-            }
-        });
+        this.initDatePickers();
+    },
 
-        $('.timepicker').timepicker({
-            i18n: {
-                cancel: 'Отмена',
-                done: 'OK'
-            }
-        });
+    methods: {
+        initDatePickers: function initDatePickers() {
+            $('.datepicker').datepicker({
+                selectMonths: true,
+                selectYears: 15,
+                firstDay: 1,
+                format: 'yyyy-mm-dd',
+                i18n: {
+                    months: ["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"],
+                    monthsShort: ["Янв", "Фев", "Мар", "Апр", "Май", "Июн", "Июл", "Авг", "Сен", "Окт", "Ноя", "Дек"],
+                    weekdays: ["Воскресенье", "Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Субота"],
+                    weekdaysShort: ["Вс", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб"],
+                    weekdaysAbbrev: ["В", "П", "В", "С", "Ч", "П", "С"],
+                    cancel: 'Отмена'
+                }
+            });
+
+            $('.timepicker').timepicker({
+                i18n: {
+                    cancel: 'Отмена',
+                    done: 'OK'
+                }
+            });
+        }
     }
 });
 
@@ -47570,81 +47572,155 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card #e3f2fd blue lighten-5" }, [
-      _c("form", { attrs: { action: "" } }, [
-        _c("div", { staticClass: "card-content" }, [
-          _c("span", { staticClass: "card-title" }, [_vm._v("Расход")]),
-          _vm._v(" "),
-          _c("div", { staticClass: "row" }, [
-            _c("div", { staticClass: "col s6" }, [
-              _c("input", {
-                staticClass: "datepicker",
-                attrs: { type: "text" }
-              })
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col s6" }, [
-              _c("input", {
-                staticClass: "timepicker",
-                attrs: { type: "text" }
-              })
-            ])
+  return _c("div", { staticClass: "card #e3f2fd blue lighten-5" }, [
+    _c("form", { attrs: { action: "" } }, [
+      _c("div", { staticClass: "card-content" }, [
+        _c("span", { staticClass: "card-title" }, [_vm._v("Расход")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col s6" }, [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.purchase.date,
+                  expression: "purchase.date"
+                }
+              ],
+              staticClass: "datepicker",
+              attrs: { type: "text" },
+              domProps: { value: _vm.purchase.date },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.purchase, "date", $event.target.value)
+                }
+              }
+            })
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "row" }, [
-            _c("div", { staticClass: "col s6" }, [
-              _c("div", { staticClass: "input-field col s6" }, [
-                _c("input", {
-                  staticClass: "validate",
-                  attrs: { id: "category", type: "text" }
-                }),
-                _vm._v(" "),
-                _c("label", { attrs: { for: "category" } }, [
-                  _vm._v("Категория")
-                ])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col s6" }, [
-              _c("div", { staticClass: "input-field col s6" }, [
-                _c("input", {
-                  staticClass: "validate",
-                  attrs: { id: "amount", type: "text" }
-                }),
-                _vm._v(" "),
-                _c("label", { attrs: { for: "amount" } }, [_vm._v("Сумма")])
-              ])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "row" }, [
-            _c("div", { staticClass: "input-field col s12" }, [
-              _c("textarea", {
-                staticClass: "materialize-textarea",
-                attrs: { id: "comment" }
+          _c("div", { staticClass: "col s6" }, [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.purchase.time,
+                  expression: "purchase.time"
+                }
+              ],
+              staticClass: "timepicker",
+              attrs: { type: "text" },
+              domProps: { value: _vm.purchase.time },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.purchase, "time", $event.target.value)
+                }
+              }
+            })
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col m6" }, [
+            _c("div", { staticClass: "input-field col s6" }, [
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.purchase.category,
+                    expression: "purchase.category"
+                  }
+                ],
+                staticClass: "validate",
+                attrs: { id: "category", type: "text" },
+                domProps: { value: _vm.purchase.category },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.purchase, "category", $event.target.value)
+                  }
+                }
               }),
               _vm._v(" "),
-              _c("label", { attrs: { for: "comment" } }, [_vm._v("Коментарий")])
+              _c("label", { attrs: { for: "category" } }, [_vm._v("Категория")])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col m6" }, [
+            _c("div", { staticClass: "input-field col s6" }, [
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.purchase.amount,
+                    expression: "purchase.amount"
+                  }
+                ],
+                staticClass: "validate",
+                attrs: { id: "amount", type: "text" },
+                domProps: { value: _vm.purchase.amount },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.purchase, "amount", $event.target.value)
+                  }
+                }
+              }),
+              _vm._v(" "),
+              _c("label", { attrs: { for: "amount" } }, [_vm._v("Сумма")])
             ])
           ])
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "card-action" }, [
-          _c("a", { attrs: { href: "#" } }, [_vm._v("This is a link")]),
-          _vm._v(" "),
-          _c("a", { attrs: { href: "#" } }, [_vm._v("This is a link")])
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "input-field col s12" }, [
+            _c("textarea", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.purchase.comment,
+                  expression: "purchase.comment"
+                }
+              ],
+              staticClass: "materialize-textarea",
+              attrs: { id: "comment" },
+              domProps: { value: _vm.purchase.comment },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.purchase, "comment", $event.target.value)
+                }
+              }
+            }),
+            _vm._v(" "),
+            _c("label", { attrs: { for: "comment" } }, [_vm._v("Коментарий")])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("button", { staticClass: "waves-effect waves-light btn" }, [
+          _vm._v("Сохранить")
         ])
       ])
     ])
-  }
-]
+  ])
+}
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {

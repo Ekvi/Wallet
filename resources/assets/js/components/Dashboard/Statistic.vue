@@ -6,7 +6,7 @@
                     <span class="card-title center-align">Расходы</span>
                     <ul class="collection">
                         <a href="#" class="btn-floating add-fab waves-effect #e57373 red lighten-2">
-                            <i class="material-icons">add</i>
+                            <i class="material-icons">+</i>
                         </a>
                         <li class="collection-item"><span>Сегодня</span><span class="right price">0</span></li>
                         <li class="collection-item"><span>Неделя</span><span class="right price">0</span></li>
@@ -18,7 +18,7 @@
                     <span class="card-title center-align">Доходы</span>
                     <ul class="collection">
                         <a href="#" class="btn-floating add-fab waves-effect #e57373 red lighten-2">
-                            <i class="material-icons">add</i>
+                            <i class="material-icons">+</i>
                         </a>
                         <li class="collection-item"><span>Месяц</span><span class="right price">0</span></li>
                         <li class="collection-item"><span>Год</span><span class="right price">0</span></li>
