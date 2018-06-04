@@ -6723,6 +6723,16 @@ table.text-center th {
 }
 @charset "UTF-8";
 
+.btn-floating.add-fab {
+  position: absolute;
+  right: 7px;
+  top: 13px;
+}
+
+.price {
+  margin-right: 50px;
+}
+
 /*!
  * Bootstrap v3.3.7 (http://getbootstrap.com)
  * Copyright 2011-2016 Twitter, Inc.

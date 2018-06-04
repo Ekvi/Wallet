@@ -18,7 +18,7 @@
                         <app-chart-history></app-chart-history>
                     </div>
                     <div class="col s6">
-
+                        <app-purchase-form></app-purchase-form>
                     </div>
                 </div>
             </div>
@@ -32,6 +32,7 @@
     import CostsList from './Dashboard/CostsList.vue';
     import ChartCosts from './Dashboard/Chart/ChartCosts.vue';
     import ChartHistory from './Dashboard/Chart/ChartHistory.vue';
+    import PurchaseForm from './Dashboard/Forms/PurchaseForm.vue';
 
     export default {
         components: {
@@ -39,6 +40,7 @@
             appCostsList: CostsList,
             appChartCosts: ChartCosts,
             appChartHistory: ChartHistory,
+            appPurchaseForm: PurchaseForm,
         },
         data() {
             return {

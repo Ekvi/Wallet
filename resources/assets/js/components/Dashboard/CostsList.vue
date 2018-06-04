@@ -12,12 +12,6 @@
             </select>
 
             <ul class="collection">
-                <!--<li class="collection-item">
-                    <div class="row">
-                        <div class="col s8">Всего</div>
-                        <div class="col s4">0</div>
-                    </div>
-                </li>-->
                 <li class="collection-item"><span>Всего</span><span class="right">0</span></li>
                 <li class="collection-item"><span>Еда</span><span class="right">0</span></li>
                 <li class="collection-item"><span>Одежда</span><span class="right">0</span></li>

@@ -7,6 +7,15 @@ import VueRouter from 'vue-router';
 
 Vue.use(VueRouter);
 
+/*import VueMaterial from 'vue-material'
+import 'vue-material/dist/vue-material.min.css'*/
+/*import 'vue-material/dist/theme/default.css'*/
+
+//Vue.use(VueMaterial);
+
+require('materialize-css/dist/css/materialize.min.css');
+require('materialize-css/dist/js/materialize.min.js');
+
 let Header = require('./components/Header.vue');
 let Footer = require('./components/Footer.vue');
 
