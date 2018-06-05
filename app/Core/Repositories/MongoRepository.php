@@ -15,7 +15,7 @@ abstract class MongoRepository implements Repository
 
     public function all(array $columns = ['*'])
     {
-        // TODO: Implement all() method.
+        return $this->model->get();
     }
 
     public function first(array $columns = ['*'])

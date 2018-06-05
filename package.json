@@ -21,6 +21,7 @@
     "dependencies": {
         "admin-lte": "^2.4.3",
         "materialize-css": "^1.0.0-rc.1",
-        "vue-router": "^3.0.1"
+        "vue-router": "^3.0.1",
+        "vuex": "^3.0.1"
     }
 }

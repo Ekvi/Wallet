@@ -13,4 +13,11 @@ class CategoryController extends Controller
     {
         $this->categoryService = $categoryService;
     }
+
+    public function get()
+    {
+        $categories = $this->categoryService->getAll();
+
+        return response()->json($categories);
+    }
 }

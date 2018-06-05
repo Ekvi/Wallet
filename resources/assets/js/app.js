@@ -7,11 +7,7 @@ import VueRouter from 'vue-router';
 
 Vue.use(VueRouter);
 
-/*import VueMaterial from 'vue-material'
-import 'vue-material/dist/vue-material.min.css'*/
-/*import 'vue-material/dist/theme/default.css'*/
-
-//Vue.use(VueMaterial);
+import store from './store';
 
 require('materialize-css/dist/css/materialize.min.css');
 require('materialize-css/dist/js/materialize.min.js');
@@ -35,11 +31,9 @@ const router = new VueRouter({
 const app = new Vue({
     el: '#app',
     router,
+    store,
     components: {
         appHeader: Header,
         appFooter: Footer
     },
-    /*created() {
-        console.log('start');
-    }*/
 });

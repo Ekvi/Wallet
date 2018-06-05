@@ -3,6 +3,7 @@
         <div class="row">
             <div class="col s12">
                 <app-statistic></app-statistic>
+                <button class="btn" @click="fetchCategories">Fetch Categories</button>
 
                 <div class="row">
                     <div class="col s6">
@@ -34,6 +35,8 @@
     import ChartHistory from './Dashboard/Chart/ChartHistory.vue';
     import PurchaseForm from './Dashboard/Forms/PurchaseForm.vue';
 
+    import {mapActions} from 'vuex';
+
     export default {
         components: {
             appStatistic: Statistic,
@@ -47,8 +50,26 @@
 
             }
         },
-        mounted() {
-            console.log('Dash.')
+        created() {
+            //this.fetchStatistic();
+            //this.fetchCategories();
+        },
+        methods: {
+            methods: mapActions([
+                'fetchCategories'
+            ]),
+            /*fetchCategories () {    // Add this
+                this.fetchCategories();
+            }*/
+            /*fetchStatistic() {
+                axios.get(`/api/statistic`)
+                        .then(response => console.log(response.json()));
+            },
+            */
+            /*fetchCategories() {
+                axios.get(`/api/categories`)
+                        .then(response => console.log(response.json()));
+            }*/
         }
     }
 </script>
