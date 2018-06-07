@@ -13,17 +13,21 @@ abstract class MongoRepository implements Repository
         $this->model = $model;
     }
 
-    public function all(array $columns = ['*'])
+    public function all(array $where = [], array $columns = ['*'])
     {
+        if($where) {
+            return $this->model->where($where)->get();
+        }
+
         return $this->model->get();
     }
 
-    public function first(array $columns = ['*'])
+    public function first(array $where = [], array $columns = ['*'])
     {
         // TODO: Implement first() method.
     }
 
-    public function count()
+    public function count(array $where = [])
     {
         // TODO: Implement count() method.
     }

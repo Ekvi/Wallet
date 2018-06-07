@@ -18,4 +18,4 @@ use Illuminate\Http\Request;
 });*/
 
 Route::get('/statistic', 'Api\StatisticController@get')->name('statistic');
-Route::get('/categories', 'Api\CategoryController@get')->name('categories');
+Route::post('/categories', 'Api\CategoryController@get')->name('categories');

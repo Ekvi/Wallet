@@ -12,17 +12,16 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col m6">
-                        <div class="input-field col s6">
-                            <input id="category" type="text" class="validate" v-model="purchase.category">
-                            <label for="category">Категория</label>
-                        </div>
+                    <div class="col m6 input-field">
+                        <select id="category" v-model="purchase.category">
+                            <option value="" disabled selected>Выберите категорию</option>
+                            <option v-for="category in purchaseCategories" value="category._id">{{ category.name }}</option>
+                        </select>
+                        <label for="category">Категории</label>
                     </div>
-                    <div class="col m6">
-                        <div class="input-field col s6">
-                            <input id="amount" type="text" class="validate" v-model="purchase.amount">
-                            <label for="amount">Сумма</label>
-                        </div>
+                    <div class="input-field col m6">
+                        <input id="amount" type="text" class="validate" v-model="purchase.amount">
+                        <label for="amount">Сумма</label>
                     </div>
                 </div>
                 <div class="row">
@@ -38,6 +37,8 @@
 </template>
 
 <script>
+    import {mapGetters} from 'vuex';
+
     export default {
         data() {
             return {
@@ -46,6 +47,15 @@
         },
         mounted() {
             this.initDatePickers();
+            $('select').formSelect();
+        },
+        updated() {
+            $('select').formSelect();
+        },
+        computed: {
+            ...mapGetters([
+                'purchaseCategories'
+            ])
         },
         methods: {
             initDatePickers() {

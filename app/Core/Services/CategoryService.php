@@ -17,4 +17,19 @@ class CategoryService
     {
         return $this->categoryRepository->all();
     }
+
+    public function get(string $type)
+    {
+        return $this->categoryRepository->all(['type' => $type]);
+    }
+
+    public function getPurchaseCategories()
+    {
+        return $this->categoryRepository->all();
+    }
+
+    public function getIncomeCategories()
+    {
+        return $this->categoryRepository->all();
+    }
 }

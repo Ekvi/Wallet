@@ -1,3 +1,7 @@
-/**
- * Created by dmitrii on 05.06.18.
- */
+export const purchaseCategories = (state) => {
+    return state.purchaseCategories;
+};
+
+export const incomeCategories = (state) => {
+    return state.incomeCategories;
+};

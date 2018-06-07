@@ -1,12 +1,13 @@
 import * as types from './mutation-types'
 
-export const fetchCategories = ({commit}) => {
-    axios.get(`/api/categories`)
-        .then(response => response.json())
-        .then(json => commit(types.INIT_CATEGORIES, json))
+export const fetchPurchaseCategories = ({commit}) => {
+    axios.post(`/api/categories`, {type: 'purchase'})
+        .then(response => response.data)
+        .then(categories => commit(types.INIT_PURCHASE_CATEGORIES, categories))
 };
 
-/*
-removeLink: (context, link) => {       // Add this:
-    context.commit("REMOVE_LINK", link)
-}*/
+export const fetchIncomeCategories = ({commit}) => {
+    axios.post(`/api/categories`, {type: 'income'})
+        .then(response => response.data)
+        .then(categories => commit(types.INIT_INCOME_CATEGORIES, categories))
+};

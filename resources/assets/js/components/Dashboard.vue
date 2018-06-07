@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col s12">
                 <app-statistic></app-statistic>
-                <button class="btn" @click="fetchCategories">Fetch Categories</button>
+                <!--<button class="btn" @click="fetchCategories">Fetch Categories</button>-->
 
                 <div class="row">
                     <div class="col s6">
@@ -29,13 +29,12 @@
 </template>
 
 <script>
+    import {mapActions} from 'vuex';
     import Statistic from './Dashboard/Statistic.vue';
     import CostsList from './Dashboard/CostsList.vue';
     import ChartCosts from './Dashboard/Chart/ChartCosts.vue';
     import ChartHistory from './Dashboard/Chart/ChartHistory.vue';
     import PurchaseForm from './Dashboard/Forms/PurchaseForm.vue';
-
-    import {mapActions} from 'vuex';
 
     export default {
         components: {
@@ -52,12 +51,14 @@
         },
         created() {
             //this.fetchStatistic();
-            //this.fetchCategories();
+            this.fetchPurchaseCategories();
+            this.fetchIncomeCategories();
         },
-        methods: {
-            methods: mapActions([
-                'fetchCategories'
-            ]),
+        methods: mapActions([
+            'fetchPurchaseCategories',
+            'fetchIncomeCategories'
+        ]),
+        //methods: {
             /*fetchCategories () {    // Add this
                 this.fetchCategories();
             }*/
@@ -70,6 +71,6 @@
                 axios.get(`/api/categories`)
                         .then(response => console.log(response.json()));
             }*/
-        }
+        //}
     }
 </script>
