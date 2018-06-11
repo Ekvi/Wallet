@@ -30,7 +30,10 @@
                         <label for="comment">Коментарий</label>
                     </div>
                 </div>
-                <button class="waves-effect waves-light btn">Сохранить</button>
+                <div class="right-align">
+                    <button class="waves-effect #80cbc4 teal lighten-3 btn" @click="showDashboard">Отмена</button>
+                    <button class="waves-effect waves-light btn">Сохранить</button>
+                </div>
             </div>
         </form>
     </div>
@@ -38,6 +41,7 @@
 
 <script>
     import {mapGetters} from 'vuex';
+    import {mapMutations} from 'vuex';
 
     export default {
         data() {
@@ -58,6 +62,12 @@
             ])
         },
         methods: {
+            ...mapMutations([
+                'SHOW_DASHBOARD'
+            ]),
+            showDashboard() {
+                this.SHOW_DASHBOARD({showDashboard: true, showPurchaseForm: false, showIncomeForm: false});
+            },
             initDatePickers() {
                 $('.datepicker').datepicker({
                     selectMonths: true,

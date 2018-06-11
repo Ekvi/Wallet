@@ -11583,7 +11583,7 @@ module.exports = Vue;
 /* unused harmony export Store */
 /* unused harmony export install */
 /* unused harmony export mapState */
-/* unused harmony export mapMutations */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return mapMutations; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return mapGetters; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return mapActions; });
 /* unused harmony export createNamespacedHelpers */
@@ -12985,8 +12985,14 @@ module.exports = Cancel;
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return INIT_PURCHASE_CATEGORIES; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return INIT_INCOME_CATEGORIES; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return SHOW_PURCHASE_FORM; });
+/* unused harmony export SHOW_INCOME_FORM */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return SHOW_DASHBOARD; });
 var INIT_PURCHASE_CATEGORIES = 'INIT_PURCHASE_CATEGORIES';
 var INIT_INCOME_CATEGORIES = 'INIT_INCOME_CATEGORIES';
+var SHOW_PURCHASE_FORM = 'SHOW_PURCHASE_FORM';
+var SHOW_INCOME_FORM = 'SHOW_INCOME_FORM';
+var SHOW_DASHBOARD = 'SHOW_DASHBOARD';
 
 /***/ }),
 /* 13 */
@@ -46803,7 +46809,10 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vuex
 
 var state = {
     purchaseCategories: [],
-    incomeCategories: []
+    incomeCategories: [],
+    showDashboard: true,
+    showPurchaseForm: false,
+    showIncomeForm: false
 };
 
 /* harmony default export */ __webpack_exports__["a"] = (new __WEBPACK_IMPORTED_MODULE_1_vuex__["a" /* default */].Store({
@@ -46830,6 +46839,13 @@ var mutations = (_mutations = {}, _defineProperty(_mutations, __WEBPACK_IMPORTED
     state.purchaseCategories = payload;
 }), _defineProperty(_mutations, __WEBPACK_IMPORTED_MODULE_0__mutation_types__["a" /* INIT_INCOME_CATEGORIES */], function (state, payload) {
     state.incomeCategories = payload;
+}), _defineProperty(_mutations, __WEBPACK_IMPORTED_MODULE_0__mutation_types__["c" /* SHOW_DASHBOARD */], function (state, payload) {
+    state.showPurchaseForm = payload.showPurchaseForm;
+    state.showIncomeForm = payload.showIncomeForm;
+    state.showDashboard = payload.showDashboard;
+}), _defineProperty(_mutations, __WEBPACK_IMPORTED_MODULE_0__mutation_types__["d" /* SHOW_PURCHASE_FORM */], function (state, payload) {
+    state.showPurchaseForm = payload.showPurchaseForm;
+    state.showDashboard = payload.showDashboard;
 }), _mutations);
 
 /***/ }),
@@ -46840,12 +46856,27 @@ var mutations = (_mutations = {}, _defineProperty(_mutations, __WEBPACK_IMPORTED
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "purchaseCategories", function() { return purchaseCategories; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "incomeCategories", function() { return incomeCategories; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "showDashboard", function() { return showDashboard; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "showPurchaseForm", function() { return showPurchaseForm; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "showIncomeForm", function() { return showIncomeForm; });
 var purchaseCategories = function purchaseCategories(state) {
     return state.purchaseCategories;
 };
 
 var incomeCategories = function incomeCategories(state) {
     return state.incomeCategories;
+};
+
+var showDashboard = function showDashboard(state) {
+    return state.showDashboard;
+};
+
+var showPurchaseForm = function showPurchaseForm(state) {
+    return state.showPurchaseForm;
+};
+
+var showIncomeForm = function showIncomeForm(state) {
+    return state.showIncomeForm;
 };
 
 /***/ }),
@@ -47846,6 +47877,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__Dashboard_Chart_ChartHistory_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__Dashboard_Chart_ChartHistory_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__Dashboard_Forms_PurchaseForm_vue__ = __webpack_require__(72);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__Dashboard_Forms_PurchaseForm_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__Dashboard_Forms_PurchaseForm_vue__);
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 //
 //
 //
@@ -47876,6 +47909,22 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
 
 
 
@@ -47895,27 +47944,18 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     data: function data() {
         return {};
     },
+    mounted: function mounted() {
+        $('.modal').modal();
+    },
     created: function created() {
         //this.fetchStatistic();
+
         this.fetchPurchaseCategories();
         this.fetchIncomeCategories();
     },
 
-    methods: Object(__WEBPACK_IMPORTED_MODULE_0_vuex__["b" /* mapActions */])(['fetchPurchaseCategories', 'fetchIncomeCategories'])
-    //methods: {
-    /*fetchCategories () {    // Add this
-        this.fetchCategories();
-    }*/
-    /*fetchStatistic() {
-        axios.get(`/api/statistic`)
-                .then(response => console.log(response.json()));
-    },
-    */
-    /*fetchCategories() {
-        axios.get(`/api/categories`)
-                .then(response => console.log(response.json()));
-    }*/
-    //}
+    methods: Object(__WEBPACK_IMPORTED_MODULE_0_vuex__["b" /* mapActions */])(['fetchPurchaseCategories', 'fetchIncomeCategories']),
+    computed: _extends({}, Object(__WEBPACK_IMPORTED_MODULE_0_vuex__["c" /* mapGetters */])(['showDashboard', 'showPurchaseForm', 'showIncomeForm']))
 });
 
 /***/ }),
@@ -47971,6 +48011,11 @@ module.exports = Component.exports
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vuex__ = __webpack_require__(5);
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+//
+//
 //
 //
 //
@@ -48009,13 +48054,18 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 
+
+
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
         return {};
     },
-    mounted: function mounted() {
-        console.log('Statistics');
-    }
+
+    methods: _extends({}, Object(__WEBPACK_IMPORTED_MODULE_0_vuex__["d" /* mapMutations */])(['SHOW_PURCHASE_FORM']), {
+        showPurchaseForm: function showPurchaseForm() {
+            this.SHOW_PURCHASE_FORM({ showDashboard: false, showPurchaseForm: true });
+        }
+    })
 });
 
 /***/ }),
@@ -48026,94 +48076,125 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", { staticClass: "card #e3f2fd blue lighten-5" }, [
+    _c("div", { staticClass: "card-content <!--white-text-->" }, [
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "col s4" }, [
+          _c("span", { staticClass: "card-title center-align" }, [
+            _vm._v("Расходы")
+          ]),
+          _vm._v(" "),
+          _c("ul", { staticClass: "collection" }, [
+            _c(
+              "a",
+              {
+                staticClass:
+                  "btn-floating add-fab waves-effect #e57373 red lighten-2",
+                attrs: { href: "#" },
+                on: { click: _vm.showPurchaseForm }
+              },
+              [_c("i", { staticClass: "material-icons" }, [_vm._v("+")])]
+            ),
+            _vm._v(" "),
+            _vm._m(0),
+            _vm._v(" "),
+            _vm._m(1),
+            _vm._v(" "),
+            _vm._m(2),
+            _vm._v(" "),
+            _vm._m(3)
+          ])
+        ]),
+        _vm._v(" "),
+        _vm._m(4),
+        _vm._v(" "),
+        _vm._m(5)
+      ])
+    ])
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card #e3f2fd blue lighten-5" }, [
-      _c("div", { staticClass: "card-content <!--white-text-->" }, [
-        _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col s4" }, [
-            _c("span", { staticClass: "card-title center-align" }, [
-              _vm._v("Расходы")
-            ]),
-            _vm._v(" "),
-            _c("ul", { staticClass: "collection" }, [
-              _c(
-                "a",
-                {
-                  staticClass:
-                    "btn-floating add-fab waves-effect #e57373 red lighten-2",
-                  attrs: { href: "#" }
-                },
-                [_c("i", { staticClass: "material-icons" }, [_vm._v("+")])]
-              ),
-              _vm._v(" "),
-              _c("li", { staticClass: "collection-item" }, [
-                _c("span", [_vm._v("Сегодня")]),
-                _c("span", { staticClass: "right price" }, [_vm._v("0")])
-              ]),
-              _vm._v(" "),
-              _c("li", { staticClass: "collection-item" }, [
-                _c("span", [_vm._v("Неделя")]),
-                _c("span", { staticClass: "right price" }, [_vm._v("0")])
-              ]),
-              _vm._v(" "),
-              _c("li", { staticClass: "collection-item" }, [
-                _c("span", [_vm._v("Месяц")]),
-                _c("span", { staticClass: "right price" }, [_vm._v("0")])
-              ]),
-              _vm._v(" "),
-              _c("li", { staticClass: "collection-item" }, [
-                _c("span", [_vm._v("Год")]),
-                _c("span", { staticClass: "right price" }, [_vm._v("0")])
-              ])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col s4" }, [
-            _c("span", { staticClass: "card-title center-align" }, [
-              _vm._v("Доходы")
-            ]),
-            _vm._v(" "),
-            _c("ul", { staticClass: "collection" }, [
-              _c(
-                "a",
-                {
-                  staticClass:
-                    "btn-floating add-fab waves-effect #e57373 red lighten-2",
-                  attrs: { href: "#" }
-                },
-                [_c("i", { staticClass: "material-icons" }, [_vm._v("+")])]
-              ),
-              _vm._v(" "),
-              _c("li", { staticClass: "collection-item" }, [
-                _c("span", [_vm._v("Месяц")]),
-                _c("span", { staticClass: "right price" }, [_vm._v("0")])
-              ]),
-              _vm._v(" "),
-              _c("li", { staticClass: "collection-item" }, [
-                _c("span", [_vm._v("Год")]),
-                _c("span", { staticClass: "right price" }, [_vm._v("0")])
-              ])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col s4" }, [
-            _c("span", { staticClass: "card-title center-align" }, [
-              _vm._v("Баланс")
-            ]),
-            _vm._v(" "),
-            _c("ul", { staticClass: "collection" }, [
-              _c("li", { staticClass: "collection-item" }, [
-                _c("span", [_vm._v("Всё время")]),
-                _c("span", { staticClass: "right price" }, [_vm._v("0")])
-              ])
-            ])
-          ])
+    return _c("li", { staticClass: "collection-item" }, [
+      _c("span", [_vm._v("Сегодня")]),
+      _c("span", { staticClass: "right price" }, [_vm._v("0")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", { staticClass: "collection-item" }, [
+      _c("span", [_vm._v("Неделя")]),
+      _c("span", { staticClass: "right price" }, [_vm._v("0")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", { staticClass: "collection-item" }, [
+      _c("span", [_vm._v("Месяц")]),
+      _c("span", { staticClass: "right price" }, [_vm._v("0")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", { staticClass: "collection-item" }, [
+      _c("span", [_vm._v("Год")]),
+      _c("span", { staticClass: "right price" }, [_vm._v("0")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col s4" }, [
+      _c("span", { staticClass: "card-title center-align" }, [
+        _vm._v("Доходы")
+      ]),
+      _vm._v(" "),
+      _c("ul", { staticClass: "collection" }, [
+        _c(
+          "a",
+          {
+            staticClass:
+              "btn-floating add-fab waves-effect #e57373 red lighten-2",
+            attrs: { href: "#" }
+          },
+          [_c("i", { staticClass: "material-icons" }, [_vm._v("+")])]
+        ),
+        _vm._v(" "),
+        _c("li", { staticClass: "collection-item" }, [
+          _c("span", [_vm._v("Месяц")]),
+          _c("span", { staticClass: "right price" }, [_vm._v("0")])
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "collection-item" }, [
+          _c("span", [_vm._v("Год")]),
+          _c("span", { staticClass: "right price" }, [_vm._v("0")])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col s4" }, [
+      _c("span", { staticClass: "card-title center-align" }, [
+        _vm._v("Баланс")
+      ]),
+      _vm._v(" "),
+      _c("ul", { staticClass: "collection" }, [
+        _c("li", { staticClass: "collection-item" }, [
+          _c("span", [_vm._v("Всё время")]),
+          _c("span", { staticClass: "right price" }, [_vm._v("0")])
         ])
       ])
     ])
@@ -48597,6 +48678,10 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 //
 //
 //
+//
+//
+//
+
 
 
 
@@ -48615,7 +48700,10 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
     },
 
     computed: _extends({}, Object(__WEBPACK_IMPORTED_MODULE_0_vuex__["c" /* mapGetters */])(['purchaseCategories'])),
-    methods: {
+    methods: _extends({}, Object(__WEBPACK_IMPORTED_MODULE_0_vuex__["d" /* mapMutations */])(['SHOW_DASHBOARD']), {
+        showDashboard: function showDashboard() {
+            this.SHOW_DASHBOARD({ showDashboard: true, showPurchaseForm: false, showIncomeForm: false });
+        },
         initDatePickers: function initDatePickers() {
             $('.datepicker').datepicker({
                 selectMonths: true,
@@ -48639,7 +48727,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
                 }
             });
         }
-    }
+    })
 });
 
 /***/ }),
@@ -48811,8 +48899,19 @@ var render = function() {
           ])
         ]),
         _vm._v(" "),
-        _c("button", { staticClass: "waves-effect waves-light btn" }, [
-          _vm._v("Сохранить")
+        _c("div", { staticClass: "right-align" }, [
+          _c(
+            "button",
+            {
+              staticClass: "waves-effect #80cbc4 teal lighten-3 btn",
+              on: { click: _vm.showDashboard }
+            },
+            [_vm._v("Отмена")]
+          ),
+          _vm._v(" "),
+          _c("button", { staticClass: "waves-effect waves-light btn" }, [
+            _vm._v("Сохранить")
+          ])
         ])
       ])
     ])
@@ -48840,7 +48939,17 @@ var render = function() {
     _c("div", { staticClass: "row" }, [
       _c(
         "div",
-        { staticClass: "col s12" },
+        {
+          directives: [
+            {
+              name: "show",
+              rawName: "v-show",
+              value: _vm.showDashboard,
+              expression: "showDashboard"
+            }
+          ],
+          staticClass: "col s12"
+        },
         [
           _c("app-statistic"),
           _vm._v(" "),
@@ -48856,6 +48965,23 @@ var render = function() {
             _c("div", { staticClass: "col s6" }, [_c("app-purchase-form")], 1)
           ])
         ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          directives: [
+            {
+              name: "show",
+              rawName: "v-show",
+              value: _vm.showPurchaseForm,
+              expression: "showPurchaseForm"
+            }
+          ],
+          staticClass: "col m6 offset-m3"
+        },
+        [_c("app-purchase-form")],
         1
       )
     ])

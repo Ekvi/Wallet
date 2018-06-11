@@ -9,7 +9,10 @@ Vue.use(Vuex);
 
 const state = {
     purchaseCategories: [],
-    incomeCategories: []
+    incomeCategories: [],
+    showDashboard: true,
+    showPurchaseForm: false,
+    showIncomeForm: false
 };
 
 export default new Vuex.Store({

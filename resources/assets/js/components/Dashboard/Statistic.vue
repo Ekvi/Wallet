@@ -5,7 +5,9 @@
                 <div class="col s4">
                     <span class="card-title center-align">Расходы</span>
                     <ul class="collection">
-                        <a href="#" class="btn-floating add-fab waves-effect #e57373 red lighten-2">
+                        <a href="#"
+                           class="btn-floating add-fab waves-effect #e57373 red lighten-2"
+                           @click="showPurchaseForm" >
                             <i class="material-icons">+</i>
                         </a>
                         <li class="collection-item"><span>Сегодня</span><span class="right price">0</span></li>
@@ -36,12 +38,19 @@
 </template>
 
 <script>
+    import {mapMutations} from 'vuex';
+
     export default {
         data() {
             return {}
         },
-        mounted() {
-            console.log('Statistics')
+        methods: {
+            ...mapMutations([
+                'SHOW_PURCHASE_FORM'
+            ]),
+            showPurchaseForm() {
+                this.SHOW_PURCHASE_FORM({showDashboard: false, showPurchaseForm: true});
+            }
         }
     }
 </script>
