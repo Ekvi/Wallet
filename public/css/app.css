@@ -6733,6 +6733,16 @@ table.text-center th {
   margin-right: 50px;
 }
 
+.add-category {
+  position: absolute;
+  left: 394px;
+  top: 16px;
+}
+
+.add-category:hover {
+  cursor: pointer;
+}
+
 /*!
  * Bootstrap v3.3.7 (http://getbootstrap.com)
  * Copyright 2011-2016 Twitter, Inc.

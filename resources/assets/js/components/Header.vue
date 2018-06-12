@@ -3,8 +3,8 @@
         <div class="nav-wrapper">
             <a href="#" class="brand-logo">Logo</a>
             <div id="nav-mobile" class="right hide-on-med-and-down">
-                <router-link to="/dashboard">Home</router-link>
-                <router-link to="/login">Login</router-link>
+                <!--<router-link to="/dashboard">Home</router-link>
+                <router-link to="/login">Login</router-link>-->
             </div>
         </div>
     </nav>

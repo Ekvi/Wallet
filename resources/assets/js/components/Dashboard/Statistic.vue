@@ -5,11 +5,11 @@
                 <div class="col s4">
                     <span class="card-title center-align">Расходы</span>
                     <ul class="collection">
-                        <a href="#"
-                           class="btn-floating add-fab waves-effect #e57373 red lighten-2"
-                           @click="showPurchaseForm" >
-                            <i class="material-icons">+</i>
-                        </a>
+                        <button type="button"
+                                class="btn-floating add-fab waves-effect #e57373 red lighten-2"
+                                @click="showPurchaseForm" >
+                            <i class="material-icons">add</i>
+                        </button>
                         <li class="collection-item"><span>Сегодня</span><span class="right price">0</span></li>
                         <li class="collection-item"><span>Неделя</span><span class="right price">0</span></li>
                         <li class="collection-item"><span>Месяц</span><span class="right price">0</span></li>
@@ -19,9 +19,11 @@
                 <div class="col s4">
                     <span class="card-title center-align">Доходы</span>
                     <ul class="collection">
-                        <a href="#" class="btn-floating add-fab waves-effect #e57373 red lighten-2">
-                            <i class="material-icons">+</i>
-                        </a>
+                        <button type="button"
+                                class="btn-floating add-fab waves-effect #e57373 red lighten-2"
+                                @click="showIncomeForm">
+                            <i class="material-icons">add</i>
+                        </button>
                         <li class="collection-item"><span>Месяц</span><span class="right price">0</span></li>
                         <li class="collection-item"><span>Год</span><span class="right price">0</span></li>
                     </ul>
@@ -38,18 +40,23 @@
 </template>
 
 <script>
-    import {mapMutations} from 'vuex';
+    //import {mapMutations} from 'vuex';
 
     export default {
         data() {
             return {}
         },
         methods: {
-            ...mapMutations([
+            /*...mapMutations([
                 'SHOW_PURCHASE_FORM'
-            ]),
+            ]),*/
             showPurchaseForm() {
-                this.SHOW_PURCHASE_FORM({showDashboard: false, showPurchaseForm: true});
+                $('#purchaseForm').modal('open');
+
+                //this.SHOW_PURCHASE_FORM({showDashboard: false, showPurchaseForm: true});
+            },
+            showIncomeForm() {
+                $('#incomeForm').modal('open');
             }
         }
     }

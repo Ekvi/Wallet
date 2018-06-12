@@ -12,17 +12,21 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col m6">
-                        <div class="input-field col s6">
-                            <input id="category" type="text" class="validate" v-model="income.category">
-                            <label for="category">Категория</label>
+                    <div class="col m5 input-field">
+                        <div class="row">
+                            <div>
+                                <select id="category" v-model="income.category">
+                                    <option value="" disabled selected>Выберите категорию</option>
+                                    <option v-for="category in incomeCategories" value="category._id">{{ category.name }}</option>
+                                </select>
+                                <label for="category">Категории</label>
+                                <i class="material-icons add-category teal-text text-teal small">add_box</i>
+                            </div>
                         </div>
                     </div>
-                    <div class="col m6">
-                        <div class="input-field col s6">
-                            <input id="amount" type="text" class="validate" v-model="income.amount">
-                            <label for="amount">Сумма</label>
-                        </div>
+                    <div class="input-field col m6 offset-m1">
+                        <input id="amount" type="text" class="validate" v-model="income.amount">
+                        <label for="amount">Сумма</label>
                     </div>
                 </div>
                 <div class="row">
@@ -31,13 +35,18 @@
                         <label for="comment">Коментарий</label>
                     </div>
                 </div>
-                <button class="waves-effect waves-light btn">Сохранить</button>
+                <div class="right-align">
+                    <button type="button" class="waves-effect #80cbc4 teal lighten-3 btn" @click="close">Отмена</button>
+                    <button type="button" class="waves-effect waves-light btn">Сохранить</button>
+                </div>
             </div>
         </form>
     </div>
 </template>
 
 <script>
+    import {mapGetters} from 'vuex';
+
     export default {
         data() {
             return {
@@ -46,8 +55,20 @@
         },
         mounted() {
             this.initDatePickers();
+            $('select').formSelect();
+        },
+        updated() {
+            $('select').formSelect();
+        },
+        computed: {
+            ...mapGetters([
+                'incomeCategories'
+            ])
         },
         methods: {
+            close() {
+                $('#incomeForm').modal('close');
+            },
             initDatePickers() {
                 $('.datepicker').datepicker({
                     selectMonths: true,

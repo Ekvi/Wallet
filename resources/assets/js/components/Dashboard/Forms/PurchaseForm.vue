@@ -4,22 +4,25 @@
             <div class="card-content">
                 <span class="card-title">Расход</span>
                 <div class="row">
-                    <div class="col s6">
+                    <div class="col m6">
                         <input type="text" class="datepicker" v-model="purchase.date">
                     </div>
-                    <div class="col s6">
+                    <div class="col m6">
                         <input type="text" class="timepicker" v-model="purchase.time">
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col m6 input-field">
-                        <select id="category" v-model="purchase.category">
-                            <option value="" disabled selected>Выберите категорию</option>
-                            <option v-for="category in purchaseCategories" value="category._id">{{ category.name }}</option>
-                        </select>
-                        <label for="category">Категории</label>
+                    <div class="col m5 input-field">
+                        <div>
+                            <select id="category" v-model="purchase.category">
+                                <option value="" disabled selected>Выберите категорию</option>
+                                <option v-for="category in purchaseCategories" value="category._id">{{ category.name }}</option>
+                            </select>
+                            <label for="category">Категории</label>
+                            <i class="material-icons add-category teal-text text-teal small">add_box</i>
+                        </div>
                     </div>
-                    <div class="input-field col m6">
+                    <div class="input-field col m6 offset-m1">
                         <input id="amount" type="text" class="validate" v-model="purchase.amount">
                         <label for="amount">Сумма</label>
                     </div>
@@ -31,8 +34,8 @@
                     </div>
                 </div>
                 <div class="right-align">
-                    <button class="waves-effect #80cbc4 teal lighten-3 btn" @click="showDashboard">Отмена</button>
-                    <button class="waves-effect waves-light btn">Сохранить</button>
+                    <button type="button" class="waves-effect #80cbc4 teal lighten-3 btn" @click="close">Отмена</button>
+                    <button type="button" class="waves-effect waves-light btn">Сохранить</button>
                 </div>
             </div>
         </form>
@@ -41,7 +44,7 @@
 
 <script>
     import {mapGetters} from 'vuex';
-    import {mapMutations} from 'vuex';
+    //import {mapMutations} from 'vuex';
 
     export default {
         data() {
@@ -62,11 +65,12 @@
             ])
         },
         methods: {
-            ...mapMutations([
+            /*...mapMutations([
                 'SHOW_DASHBOARD'
-            ]),
-            showDashboard() {
-                this.SHOW_DASHBOARD({showDashboard: true, showPurchaseForm: false, showIncomeForm: false});
+            ]),*/
+            close() {
+                //this.SHOW_DASHBOARD({showDashboard: true, showPurchaseForm: false, showIncomeForm: false});
+                $('#purchaseForm').modal('close');
             },
             initDatePickers() {
                 $('.datepicker').datepicker({

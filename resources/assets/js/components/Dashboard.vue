@@ -1,7 +1,7 @@
 <template>
     <div class="container #e0f2f1 teal lighten-5">
         <div class="row">
-            <div class="col s12" v-show="showDashboard">
+            <div class="col s12">
                 <app-statistic></app-statistic>
                 <div class="row">
                     <div class="col s6">
@@ -16,28 +16,28 @@
                     <div class="col s6">
                         <app-chart-history></app-chart-history>
                     </div>
-                    <div class="col s6">
-                        <app-purchase-form></app-purchase-form>
-                    </div>
                 </div>
             </div>
-            <div class="col m6 offset-m3" v-show="showPurchaseForm">
-                <app-purchase-form></app-purchase-form>
-            </div>
-        </div>
-        <!--<a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a>-->
 
-        <!-- Modal Structure -->
-        <!--<div id="modal1" class="modal">
+        </div>
+
+        <!-- Modal purchaseForm -->
+        <div id="purchaseForm" class="modal">
             <div class="modal-content">
-                <div class="col m6 offset-m3" v-show="showPurchase">
+                <div class="col m4 offset-m4" >
                     <app-purchase-form></app-purchase-form>
                 </div>
             </div>
-            <div class="modal-footer">
-                <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+        </div>
+
+        <!-- Modal incomeForm -->
+        <div id="incomeForm" class="modal">
+            <div class="modal-content">
+                <div class="col m4 offset-m4" >
+                    <app-income-form></app-income-form>
+                </div>
             </div>
-        </div>-->
+        </div>
 
     </div>
 </template>
@@ -51,6 +51,7 @@
     import ChartCosts from './Dashboard/Chart/ChartCosts.vue';
     import ChartHistory from './Dashboard/Chart/ChartHistory.vue';
     import PurchaseForm from './Dashboard/Forms/PurchaseForm.vue';
+    import IncomeForm from './Dashboard/Forms/IncomeForm.vue';
 
     export default {
         components: {
@@ -59,6 +60,7 @@
             appChartCosts: ChartCosts,
             appChartHistory: ChartHistory,
             appPurchaseForm: PurchaseForm,
+            appIncomeForm: IncomeForm,
         },
         data() {
             return {
@@ -78,12 +80,12 @@
             'fetchPurchaseCategories',
             'fetchIncomeCategories'
         ]),
-        computed: {
+        /*computed: {
             ...mapGetters([
                 'showDashboard',
                 'showPurchaseForm',
                 'showIncomeForm'
             ])
-        },
+        },*/
     }
 </script>
