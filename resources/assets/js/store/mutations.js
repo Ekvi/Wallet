@@ -9,7 +9,7 @@ export const mutations = {
         state.incomeCategories = payload;
     },
 
-    /*[types.SHOW_DASHBOARD] (state, payload) {
+    [types.SHOW_DASHBOARD] (state, payload) {
         state.showPurchaseForm = payload.showPurchaseForm;
         state.showIncomeForm = payload.showIncomeForm;
         state.showDashboard = payload.showDashboard;
@@ -18,5 +18,10 @@ export const mutations = {
     [types.SHOW_PURCHASE_FORM] (state, payload) {
         state.showPurchaseForm = payload.showPurchaseForm;
         state.showDashboard = payload.showDashboard;
-    }*/
+    },
+
+    [types.SHOW_INCOME_FORM] (state, payload) {
+        state.showIncomeForm = payload.showIncomeForm;
+        state.showDashboard = payload.showDashboard;
+    }
 };

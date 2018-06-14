@@ -2,7 +2,7 @@
     <div class="card #e3f2fd blue lighten-5">
         <form action="">
             <div class="card-content">
-                <span class="card-title">Расход</span>
+                <span class="card-title">Доход</span>
                 <div class="row">
                     <div class="col s6">
                         <input type="text" class="datepicker" v-model="income.date">
@@ -11,17 +11,16 @@
                         <input type="text" class="timepicker" v-model="income.time">
                     </div>
                 </div>
+
                 <div class="row">
                     <div class="col m5 input-field">
-                        <div class="row">
-                            <div>
-                                <select id="category" v-model="income.category">
-                                    <option value="" disabled selected>Выберите категорию</option>
-                                    <option v-for="category in incomeCategories" value="category._id">{{ category.name }}</option>
-                                </select>
-                                <label for="category">Категории</label>
-                                <i class="material-icons add-category teal-text text-teal small">add_box</i>
-                            </div>
+                        <div>
+                            <select id="category" v-model="income.category">
+                                <option value="" disabled selected>Выберите категорию</option>
+                                <option v-for="category in incomeCategories" value="category._id">{{ category.name }}</option>
+                            </select>
+                            <label for="category">Категории</label>
+                            <i class="material-icons add-category teal-text text-teal small">add_box</i>
                         </div>
                     </div>
                     <div class="input-field col m6 offset-m1">
@@ -46,6 +45,7 @@
 
 <script>
     import {mapGetters} from 'vuex';
+    import {mapMutations} from 'vuex';
 
     export default {
         data() {
@@ -66,8 +66,12 @@
             ])
         },
         methods: {
+            ...mapMutations([
+                'SHOW_DASHBOARD'
+            ]),
             close() {
-                $('#incomeForm').modal('close');
+                //$('#incomeForm').modal('close');
+                this.SHOW_DASHBOARD({showDashboard: true, showPurchaseForm: false, showIncomeForm: false});
             },
             initDatePickers() {
                 $('.datepicker').datepicker({

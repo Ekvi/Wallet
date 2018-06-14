@@ -40,23 +40,24 @@
 </template>
 
 <script>
-    //import {mapMutations} from 'vuex';
+    import {mapMutations} from 'vuex';
 
     export default {
         data() {
             return {}
         },
         methods: {
-            /*...mapMutations([
-                'SHOW_PURCHASE_FORM'
-            ]),*/
+            ...mapMutations([
+                'SHOW_PURCHASE_FORM',
+                'SHOW_INCOME_FORM'
+            ]),
             showPurchaseForm() {
-                $('#purchaseForm').modal('open');
-
-                //this.SHOW_PURCHASE_FORM({showDashboard: false, showPurchaseForm: true});
+                //$('#purchaseForm').modal('open');
+                this.SHOW_PURCHASE_FORM({showDashboard: false, showPurchaseForm: true});
             },
             showIncomeForm() {
-                $('#incomeForm').modal('open');
+                //$('#incomeForm').modal('open');
+                this.SHOW_INCOME_FORM({showDashboard: false, showIncomeForm: true});
             }
         }
     }

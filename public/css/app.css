@@ -6735,12 +6735,16 @@ table.text-center th {
 
 .add-category {
   position: absolute;
-  left: 394px;
+  left: 215px;
   top: 16px;
 }
 
 .add-category:hover {
   cursor: pointer;
+}
+
+.container {
+  min-height: 700px;
 }
 
 /*!

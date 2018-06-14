@@ -44,7 +44,7 @@
 
 <script>
     import {mapGetters} from 'vuex';
-    //import {mapMutations} from 'vuex';
+    import {mapMutations} from 'vuex';
 
     export default {
         data() {
@@ -65,12 +65,12 @@
             ])
         },
         methods: {
-            /*...mapMutations([
+            ...mapMutations([
                 'SHOW_DASHBOARD'
-            ]),*/
+            ]),
             close() {
-                //this.SHOW_DASHBOARD({showDashboard: true, showPurchaseForm: false, showIncomeForm: false});
-                $('#purchaseForm').modal('close');
+                this.SHOW_DASHBOARD({showDashboard: true, showPurchaseForm: false, showIncomeForm: false});
+                //$('#purchaseForm').modal('close');
             },
             initDatePickers() {
                 $('.datepicker').datepicker({

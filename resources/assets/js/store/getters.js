@@ -6,7 +6,6 @@ export const incomeCategories = (state) => {
     return state.incomeCategories;
 };
 
-/*
 export const showDashboard = (state) => {
     return state.showDashboard;
 };
@@ -17,4 +16,4 @@ export const showPurchaseForm = (state) => {
 
 export const showIncomeForm = (state) => {
     return state.showIncomeForm;
-};*/
+};
